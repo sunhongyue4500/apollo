@@ -70,6 +70,7 @@ public class RemoteConfigRepository extends AbstractConfigRepository {
   private final ConfigServiceLocator m_serviceLocator;
   private final HttpClient m_httpClient;
   private final ConfigUtil m_configUtil;
+  // 真正做长轮训的服务
   private final RemoteConfigLongPollService remoteConfigLongPollService;
   private volatile AtomicReference<ApolloConfig> m_configCache;
   private final String m_namespace;
@@ -82,6 +83,7 @@ public class RemoteConfigRepository extends AbstractConfigRepository {
   private static final Gson GSON = new Gson();
 
   static {
+    // 只有一个核心线程的定时线程池
     m_executorService = Executors.newScheduledThreadPool(1,
         ApolloThreadFactory.create("RemoteConfigRepository", true));
   }

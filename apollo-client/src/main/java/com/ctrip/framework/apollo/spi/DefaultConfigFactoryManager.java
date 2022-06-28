@@ -35,6 +35,7 @@ public class DefaultConfigFactoryManager implements ConfigFactoryManager {
 
   @Override
   public ConfigFactory getFactory(String namespace) {
+    // 从四个位置校验保证最后的实例不为null
     // step 1: check hacked factory
     ConfigFactory factory = m_registry.getFactory(namespace);
 

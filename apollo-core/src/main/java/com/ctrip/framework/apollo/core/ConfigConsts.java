@@ -16,6 +16,7 @@
  */
 package com.ctrip.framework.apollo.core;
 
+// 接口定义常量
 public interface ConfigConsts {
   String NAMESPACE_APPLICATION = "application";
   String CLUSTER_NAME_DEFAULT = "default";

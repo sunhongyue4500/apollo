@@ -24,16 +24,19 @@ import com.ctrip.framework.apollo.spi.ConfigFactory;
 import com.ctrip.framework.apollo.spi.ConfigRegistry;
 
 /**
+ * 应用程序使用入口
  * Entry point for client config use
  *
  * @author Jason Song(song_s@ctrip.com)
  */
 public class ConfigService {
+  // 单例
   private static final ConfigService s_instance = new ConfigService();
-
+  // 为什么用volatile，保证线程可见性
   private volatile ConfigManager m_configManager;
   private volatile ConfigRegistry m_configRegistry;
 
+  // 双重校验锁保证单例
   private ConfigManager getManager() {
     if (m_configManager == null) {
       synchronized (this) {

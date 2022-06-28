@@ -32,6 +32,7 @@ import com.google.common.collect.Maps;
 public class DefaultConfigManager implements ConfigManager {
   private ConfigFactoryManager m_factoryManager;
 
+  // 保证线程安全的map
   private Map<String, Config> m_configs = Maps.newConcurrentMap();
   private Map<String, ConfigFile> m_configFiles = Maps.newConcurrentMap();
 

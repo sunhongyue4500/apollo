@@ -28,6 +28,7 @@ import com.google.common.collect.Maps;
  */
 public class DefaultConfigRegistry implements ConfigRegistry {
   private static final Logger s_logger = LoggerFactory.getLogger(DefaultConfigRegistry.class);
+  // ConfigRegistry和ConfigFactory一对多
   private Map<String, ConfigFactory> m_instances = Maps.newConcurrentMap();
 
   @Override

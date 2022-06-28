@@ -20,6 +20,7 @@ import com.ctrip.framework.apollo.core.utils.StringUtils;
 import java.util.stream.Stream;
 
 /**
+ * Apollo支持的配置文件的格式
  * This enum represents all the possible Configuration file formats apollo currently supports.
  * <p>
  * Currently the following formats are supported:

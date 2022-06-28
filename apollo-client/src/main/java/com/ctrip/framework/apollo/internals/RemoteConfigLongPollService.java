@@ -185,7 +185,8 @@ public class RemoteConfigLongPollService {
         }
 
         transaction.addData("Url", url);
-
+        // config service接收到请求后，如果配置没有变化，会将请求挂起
+        // 参考：https://www.apolloconfig.com/#/zh/design/apollo-design?id=_212-config-service%e9%80%9a%e7%9f%a5%e5%ae%a2%e6%88%b7%e7%ab%af%e7%9a%84%e5%ae%9e%e7%8e%b0%e6%96%b9%e5%bc%8f
         final HttpResponse<List<ApolloConfigNotification>> response =
             m_httpClient.doGet(request, m_responseType);
 
